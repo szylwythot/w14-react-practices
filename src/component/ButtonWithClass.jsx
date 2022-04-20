@@ -12,7 +12,11 @@ class ButtonWithClass extends Component {
 
     render() {
         return (
-            <div>{this.state.key1}</div>
+            <div>
+                <button onclick="activateLasers()">
+                    {this.state.key1}
+                </button>
+            </div>
         );
     }
 }
