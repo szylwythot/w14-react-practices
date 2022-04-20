@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 
 function ButtonWithHooks() {
-    const [key1, setKey1] =  useState("This is the default state of a function component.")
-  return (
-    <div>
-        <button onclick="activateLasers()">
-            {key1}
-        </button>
-    </div>
-  );
+    const [key1, setKey1] =  useState("Hook ON");
+
+    
+    function handleClick(){
+        setKey1(key1 === "Hook ON" ? "Hook OFF" : "Hook ON");
+    
+    }
+
+    return (
+        <div>
+            <button onClick={handleClick}>
+                {key1}
+            </button>
+        </div>
+    );
 }
 
-function setKey1(){
-
-}
 
 export default ButtonWithHooks
