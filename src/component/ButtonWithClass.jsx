@@ -6,7 +6,11 @@ class ButtonWithClass extends Component {
         super();
         this.state = {
             key1 : "Class ON",
-            key2 : 0
+            key2 : 0,
+            title : {
+                main: "Main title",
+                sub: "Sub title"
+            }
         };
     }
 
@@ -18,6 +22,22 @@ class ButtonWithClass extends Component {
                 </button>
                 <button onClick={() => this.setState({key2 : 1})}>
                     {this.state.key2}
+                </button>
+                {/* <button onClick={() => {
+                        this.state.key2 = 1;
+                        console.log(this.state);
+                    }}>
+                    {this.state.key2}
+                </button> */}
+                <button onClick={() => {
+                    this.setState({
+                        title : {
+                            main: "h1",
+                            sub: "subtitle"
+                        }
+                    })
+                    console.log(this.state);
+                    }}>{this.state.title.main}
                 </button>
             </div>
         );
