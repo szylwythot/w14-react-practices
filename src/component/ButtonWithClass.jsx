@@ -29,7 +29,7 @@ class ButtonWithClass extends Component {
                     }}>
                     {this.state.key2}
                 </button> */}
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     this.setState({
                         title : {
                             main: "h1",
@@ -38,7 +38,21 @@ class ButtonWithClass extends Component {
                     })
                     console.log(this.state);
                     }}>{this.state.title.main}
-                </button>
+                </button> */}
+                <button onClick={() => {
+                    this.setState(
+                    () => {
+                        return {
+                            title : {
+                                main: "h1",
+                                sub: "subtitle"
+                            }
+                        };
+                    },
+                    () => {
+                        console.log(this.state);
+                    })
+                    }}>{this.state.title.main}</button>
             </div>
         );
     }
