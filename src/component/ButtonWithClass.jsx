@@ -10,12 +10,29 @@ class ButtonWithClass extends Component {
             title : {
                 main: "Main title",
                 sub: "Sub title"
-            }
+            },
+            countries : []
         };
+        console.log("1");
     }
-
-    render() {
-        return (
+    
+    componentDidMount() {
+        console.log("3");
+        fetch('https://restcountries.com/v3.1/all')
+        .then( res => res.json())
+        .then(countriesData => this.setState(
+            () => {
+                return {
+                    countries: countriesData
+                }
+            },
+            () => console.log(this.state)
+            ))
+        }
+        
+        render() {
+            console.log("2");
+            return (
             <div>
                 <button onClick={() => this.setState(() => { return {key1 : "Class off"}; })}>
                     {this.state.key1}
@@ -53,6 +70,15 @@ class ButtonWithClass extends Component {
                         console.log(this.state);
                     })
                     }}>{this.state.title.main}</button>
+                    <div>
+                        {
+                            this.state.countries.map((country, index) => 
+                                <div key={index}>
+                                    {country.name.common}
+                                </div>
+                            )
+                        }
+                    </div>
             </div>
         );
     }
